@@ -10,8 +10,8 @@ root.render(
     <React.StrictMode>
         <Router>
             <Routes>
-                <Route exact path="/" element={<Home />}></Route>
-                <Route path="/breed" element={<HomeDetails />}></Route>
+                <Route exact path="/catwiki" element={<Home />}></Route>
+                <Route path="/catwiki/breed" element={<HomeDetails />}></Route>
             </Routes>
         </Router>
     </React.StrictMode>
