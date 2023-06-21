@@ -1,7 +1,6 @@
 import CATWIKILOGO from "../assets/img/CatwikiLogo.svg";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { IconContext } from "react-icons";
-import { MostResearchedBreeds } from "./MostResearchedBreeds";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -53,7 +52,7 @@ export const Hero = () => {
             </div>
 
             <div className="bg-slate-300 py-8 lg:py-16 px-12 rounded-b-3xl">
-                <p className="text-main-color lg:text-xl mb-5 flex gap-3 hover:italic hover:underline">
+                <p className="text-main-color lg:text-xl mb-5 flex gap-3">
                     Most Researched Breeds
                 </p>
                 <div className="flex justify-between mb-5 flex-col md:flex-row gap-5 md:gap-0">
@@ -79,7 +78,6 @@ export const Hero = () => {
                         </IconContext.Provider>
                     </div>
                 </div>
-                <MostResearchedBreeds />
             </div>
         </>
     );
