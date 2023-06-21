@@ -3,8 +3,7 @@ import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { IconContext } from "react-icons";
 import { MostResearchedBreeds } from "./MostResearchedBreeds";
 import { useEffect, useState } from "react";
-//import { useFetch } from "../hooks/useFetch";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
     const [breeds, setBreed] = useState(null);
@@ -12,9 +11,7 @@ export const Hero = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await fetch(
-                    `https://api.thecatapi.com/v1/breeds?api_key=${process.env.REACT_APP_api_key}`
-                );
+                const res = await fetch();
                 let data = await res.json();
                 setBreed(data);
             } catch (error) {
@@ -56,19 +53,22 @@ export const Hero = () => {
             </div>
 
             <div className="bg-slate-300 py-8 lg:py-16 px-12 rounded-b-3xl">
-                <p className="text-main-color lg:text-xl mb-5">
+                <p className="text-main-color lg:text-xl mb-5 flex gap-3 hover:italic hover:underline">
                     Most Researched Breeds
                 </p>
                 <div className="flex justify-between mb-5 flex-col md:flex-row gap-5 md:gap-0">
                     <p className="text-main-color font-bold text-2xl lg:text-5xl">
                         66+ Breeds For You to discover
                     </p>
+
                     <div className="flex gap-3 cursor-pointer">
                         <p
                             className="self-center text-secondary-color uppercase"
                             to="/most-popular-breed"
                         >
-                            see more
+                            <Link to="/catwiki/most-researched-breeds">
+                                see the 10 most researched breeds
+                            </Link>
                         </p>
                         <IconContext.Provider
                             value={{

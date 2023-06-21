@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { BsBoxArrowLeft } from "react-icons/bs";
+import { ReturnHome } from "./ReturnHome";
 import { Rating } from "./Rating";
 import { Loader } from "./Loader";
 
@@ -64,10 +63,7 @@ export const Details = () => {
                 </div>
             ) : (
                 <>
-                    <div className="flex flex-row gap-2 hover:italic hover:underline">
-                        <BsBoxArrowLeft className="self-center" />
-                        <Link to="/catwiki"> Return to the homepage</Link>
-                    </div>
+                    <ReturnHome />
 
                     <div className="flex flex-col md:flex-row py-7 px-5 md:px-24">
                         <div className="basis-1/3">
@@ -201,10 +197,7 @@ export const Details = () => {
                         ))}
                     </div>
 
-                    <div className="flex flex-row gap-2 hover:italic hover:underline">
-                        <BsBoxArrowLeft className="self-center" />
-                        <Link to="/catwiki"> Return to the homepage</Link>
-                    </div>
+                    <ReturnHome />
                 </>
             )}
         </div>
