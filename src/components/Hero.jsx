@@ -3,6 +3,7 @@ import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { IconContext } from "react-icons";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Banner } from "./Banner";
 
 export const Hero = () => {
     const [breeds, setBreed] = useState(null);
@@ -78,6 +79,7 @@ export const Hero = () => {
                         </IconContext.Provider>
                     </div>
                 </div>
+                <Banner />
             </div>
         </>
     );
