@@ -4,14 +4,17 @@ import { IconContext } from "react-icons";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Banner } from "./Banner";
+import Select from "react-select";
 
 export const Hero = () => {
-    const [breeds, setBreed] = useState(null);
+    const [breeds, setBreed] = useState([]);
 
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await fetch();
+                const res = await fetch(
+                    `https://api.thecatapi.com/v1/breeds?api_key=${process.env.REACT_APP_api_key}`
+                );
                 let data = await res.json();
                 setBreed(data);
             } catch (error) {
@@ -22,6 +25,13 @@ export const Hero = () => {
 
         getData();
     }, []);
+
+    const options = breeds.map((breed) => [
+        {
+            value: breed.id,
+            label: breed.name,
+        },
+    ]);
 
     return (
         <>
@@ -36,19 +46,13 @@ export const Hero = () => {
                 </p>
 
                 <div>
-                    <form action="">
-                        <select className="rounded-full p-2 px-4 w-1/2 lg:w-1/4 text-black">
-                            <option value="Select a breed" disabled selected>
-                                Select a breed
-                            </option>
-                            {breeds &&
-                                breeds.map((breed) => (
-                                    <option value={breed.id} key={breed.id}>
-                                        {breed.name}
-                                    </option>
-                                ))}
-                        </select>
-                    </form>
+                    <Select
+                        options={options}
+                        placeholder={"Search a breed..."}
+                        getOptionLabel={(options) => options['label']}
+                        getOptionValue={(options) => options['value']}
+                        className="w-1/2 text-secondary-color bg-black"
+                    />
                 </div>
             </div>
 
