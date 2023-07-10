@@ -7,31 +7,28 @@ import { Banner } from "./Banner";
 import Select from "react-select";
 
 export const Hero = () => {
-    const [breeds, setBreed] = useState([]);
+    const [options, setOptions] = useState([]);
 
     useEffect(() => {
         const getData = async () => {
+            let arr = [];
             try {
                 const res = await fetch(
                     `https://api.thecatapi.com/v1/breeds?api_key=${process.env.REACT_APP_api_key}`
                 );
                 let data = await res.json();
-                setBreed(data);
+                data.map((cat) => {
+                    return arr.push({value: cat.id, label: cat.name})
+                })
+                setOptions(arr);
             } catch (error) {
-                setBreed(null);
+                setOptions(null);
                 console.log(error);
             }
         };
 
         getData();
     }, []);
-
-    const options = breeds.map((breed) => [
-        {
-            value: breed.id,
-            label: breed.name,
-        },
-    ]);
 
     return (
         <>
@@ -48,7 +45,7 @@ export const Hero = () => {
                 <div>
                     <Select
                         options={options}
-                        placeholder={"Search a breed..."}
+                        placeholder={"Search..."}
                         getOptionLabel={(options) => options['label']}
                         getOptionValue={(options) => options['value']}
                         className="w-1/2 text-secondary-color bg-black"
