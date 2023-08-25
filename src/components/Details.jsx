@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ReturnHome } from "./ReturnHome";
 import { Rating } from "./Rating";
 import { Loader } from "./Loader";
+import { useParams } from "react-router-dom";
 
 export const Details = () => {
     const [data, setData] = useState([]);
@@ -9,6 +10,9 @@ export const Details = () => {
     const [dataOtherImg, setDataOtherImg] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const { id } = useParams();
+
+    console.log(id);
 
     useEffect(() => {
         const getData = async () => {
@@ -19,10 +23,10 @@ export const Details = () => {
                     `https://api.thecatapi.com/v1/breeds?api_key=${process.env.REACT_APP_api_key}`
                 );
                 const res_img = await fetch(
-                    `https://api.thecatapi.com/v1/images/search?breed_ids=beng`
+                    `https://api.thecatapi.com/v1/images/search?breed_ids=${id}`
                 );
                 const res_other_img = await fetch(
-                    `https://api.thecatapi.com/v1/images/search?breed_ids=beng&limit=8`
+                    `https://api.thecatapi.com/v1/images/search?breed_ids=${id}&limit=8`
                 );
 
                 let dataDetails = await res.json();
@@ -70,14 +74,14 @@ export const Details = () => {
                             {dataImg.map((imgOfCat) => (
                                 <img
                                     src={imgOfCat.url}
-                                    alt="Cat"
+                                    alt={`Cat - ${id}`}
                                     className="rounded-3xl md:w-4/5"
                                 />
                             ))}
                         </div>
                         {data.map(
                             (data) =>
-                                data.id === "beng" && (
+                                data.id === `${id}` && (
                                     <div className="basis-2/3">
                                         <h2 className="font-bold text-3xl mb-5 mt-5 md:mt-0">
                                             {data.name}
@@ -191,7 +195,7 @@ export const Details = () => {
                                 <img
                                     src={otherImg.url}
                                     alt="other images from cat"
-                                    className="rounded-3xl object-fill w-80 h-80 gap-5"
+                                    className="rounded-3xl w-80 h-80"
                                 />
                             </div>
                         ))}
