@@ -12,8 +12,6 @@ export const Details = () => {
     const [error, setError] = useState("");
     const { id } = useParams();
 
-    console.log(id);
-
     useEffect(() => {
         const getData = async () => {
             try {
