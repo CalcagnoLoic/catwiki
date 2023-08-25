@@ -2,12 +2,16 @@ import CATWIKILOGO from "../assets/img/CatwikiLogo.svg";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { IconContext } from "react-icons";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Banner } from "./Banner";
-import Select from "react-select";
 
 export const Hero = () => {
     const [options, setOptions] = useState([]);
+    let navigate = useNavigate();
+
+    function handleNavigate(value) {
+        navigate(`/catwiki/breed/${value}`);
+    }
 
     useEffect(() => {
         const getData = async () => {
@@ -18,9 +22,10 @@ export const Hero = () => {
                 );
                 let data = await res.json();
                 data.map((cat) => {
-                    return arr.push({value: cat.id, label: cat.name})
-                })
+                    return arr.push({ value: cat.id, label: cat.name });
+                });
                 setOptions(arr);
+                console.log(options);
             } catch (error) {
                 setOptions(null);
                 console.log(error);
@@ -43,13 +48,15 @@ export const Hero = () => {
                 </p>
 
                 <div>
-                    <Select
-                        options={options}
-                        placeholder={"Search..."}
-                        getOptionLabel={(options) => options['label']}
-                        getOptionValue={(options) => options['value']}
-                        className="w-1/2 text-secondary-color bg-black"
-                    />
+                    <select
+                        onChange={(e) => handleNavigate(e.target.value)}
+                        className="px-4 py-2 rounded"
+                    >
+                        <option>Search...</option>
+                        {options.map((cat) => (
+                            <option value={cat.value}>{cat.label}</option>
+                        ))}
+                    </select>
                 </div>
             </div>
 

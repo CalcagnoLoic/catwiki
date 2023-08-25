@@ -13,7 +13,7 @@ root.render(
         <Router>
             <Routes>
                 <Route exact path="/catwiki" element={<Home />}></Route>
-                <Route path="/catwiki/breed" element={<HomeDetails />}></Route>
+                <Route path="/catwiki/breed/:id" element={<HomeDetails />}></Route>
                 <Route path="/catwiki/most-researched-breeds" element={<MostResearched />}></Route>
                 <Route path="*" element={<Error />}></Route>
             </Routes>
