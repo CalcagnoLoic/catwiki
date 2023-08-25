@@ -73,7 +73,7 @@ export const Details = () => {
                                 <img
                                     src={imgOfCat.url}
                                     alt={`Cat - ${id}`}
-                                    className="rounded-3xl md:w-4/5"
+                                    className="rounded-3xl md:w-[80%] mr-5"
                                 />
                             ))}
                         </div>

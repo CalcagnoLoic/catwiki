@@ -9,7 +9,7 @@ export const SectionAboutCat = () => {
                 <h1 className="text-main-color font-bold text-2xl lg:text-5xl mb-7">
                     Why should you have a cat?
                 </h1>
-                <p className="text-main-color md:text-2xl md:w-1/2 mb-7">
+                <p className="text-main-color mr-3 md:text-2xl lg:w-2/3 mb-7">
                     Having a cat around you can actually trigger the release of
                     calming chemicals in your body which lower your stress and
                     anxiety leves
@@ -27,7 +27,9 @@ export const SectionAboutCat = () => {
                     </IconContext.Provider>
                 </div>
             </div>
-            <div><img src={CATSECTION} alt="" /></div>
+            <div className="flex">
+                <img src={CATSECTION} alt="" className="self-center" />
+            </div>
         </section>
     );
 };
