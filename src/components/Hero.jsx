@@ -18,7 +18,9 @@ export const Hero = () => {
             let arr = [];
             try {
                 const res = await fetch(
-                    `https://api.thecatapi.com/v1/breeds?api_key=${process.env.REACT_APP_api_key}`
+                    `https://api.thecatapi.com/v1/breeds?api_key=${
+                        import.meta.env.VITE_api_key
+                    }`
                 );
                 let data = await res.json();
                 data.map((cat) => {
