@@ -11,7 +11,7 @@
     <img src="src/assets//img/readme.png" width="60%">
 </p>
 
-This site lets you see the different characteristics, descriptions and photos of around sixty species of cat. 
-In addition, an article presents the top 10 most popular and sought-after species. 
+This site lets you see the different characteristics, descriptions and photos of around sixty breeds of cat. 
+In addition, an article presents the top 10 most popular and most researched breeds. 
 
 The information on cat species comes from the [Cat API](https://thecatapi.com/).
