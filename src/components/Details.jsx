@@ -40,12 +40,12 @@ export const Details = () => {
 
                     <div className="flex flex-col md:flex-row py-7 px-5 md:px-24">
                         <div className="basis-1/3">
-                            {dataImg.map((imgOfCat, index) => (
+                            {dataImg.map((imgOfCat) => (
                                 <img
                                     src={imgOfCat.url}
                                     alt={`Cat - ${id}`}
                                     className="rounded-3xl md:w-[80%] mr-5 shadow-xl"
-                                    key={index}
+                                    key={imgOfCat.id}
                                 />
                             ))}
                         </div>

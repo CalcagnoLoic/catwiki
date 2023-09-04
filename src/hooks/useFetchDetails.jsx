@@ -37,7 +37,7 @@ export const useFetchDetails = (url1, url2, url3, id) => {
         };
 
         getData();
-    }, [id]);
+    }, [id, url1, url2, url3]);
 
     return { dataCat, dataImg, dataOtherImg, loading, error };
 };
