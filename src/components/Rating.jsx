@@ -1,9 +1,9 @@
 import StarRatings from "react-star-ratings";
-import { darkModeContext } from "../context/ThemeProvider";
-import { useContext } from "react";
+//import { darkModeContext } from "../context/ThemeProvider";
+//import { useContext } from "react";
 
 export const Rating = (props) => {
-    const { darkMode } = useContext(darkModeContext);
+    //const { darkMode } = useContext(darkModeContext);
 
     return (
         <StarRatings
