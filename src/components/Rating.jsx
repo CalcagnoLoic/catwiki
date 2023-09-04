@@ -9,7 +9,7 @@ export const Rating = (props) => {
         <StarRatings
             numberOfStars={5}
             rating={props.ratingVote}
-            starRatedColor="rgba(41, 21, 7, 1)"
+            starRatedColor="#c09a1b"
             starDimension="20px"
             starSpacing="5px"
             className="self-center"
