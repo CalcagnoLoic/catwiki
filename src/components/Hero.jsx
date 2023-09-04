@@ -1,16 +1,18 @@
 import CATWIKILOGO from "../assets/img/CatwikiLogo.svg";
-import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-import { IconContext } from "react-icons";
 import { useFetchOption } from "../hooks/useFetchOption";
 import { Link, useNavigate } from "react-router-dom";
 import { Banner } from "./Banner";
+import { darkModeContext } from "../context/ThemeProvider";
+import { useContext } from "react";
 
 export const Hero = () => {
+    const { darkMode } = useContext(darkModeContext);
+
     let navigate = useNavigate();
 
-    function handleNavigate(value) {
+    const handleNavigate = (value) => {
         navigate(`/catwiki/breed/${value}`);
-    }
+    };
 
     const { options } = useFetchOption(
         "https://api.thecatapi.com/v1/breeds?api_key="
@@ -43,12 +45,24 @@ export const Hero = () => {
                 </div>
             </div>
 
-            <div className="bg-slate-300 py-8 lg:py-16 px-12 rounded-b-3xl">
-                <p className="text-main-color lg:text-xl mb-5 flex gap-3">
+            <div
+                className={`${
+                    darkMode ? "bg-slate-300" : "bg-slate-500"
+                }  py-8 lg:py-16 px-12 rounded-b-3xl shadow-lg `}
+            >
+                <p
+                    className={`${
+                        darkMode ? "text-main-color" : "text-white"
+                    } lg:text-xl mb-5 flex gap-3 `}
+                >
                     Most Researched Breeds
                 </p>
                 <div className="flex justify-between mb-5 flex-col md:flex-row gap-5 md:gap-0">
-                    <p className="text-main-color font-bold text-2xl lg:text-5xl">
+                    <p
+                        className={`${
+                            darkMode ? "text-main-color" : "text-white"
+                        } font-bold text-2xl lg:text-5xl `}
+                    >
                         66+ Breeds For You to discover
                     </p>
 
@@ -57,19 +71,18 @@ export const Hero = () => {
                             className="self-center text-secondary-color uppercase"
                             to="/most-popular-breed"
                         >
-                            <Link to="/catwiki/most-researched-breeds">
-                                see the 10 most researched breeds
+                            <Link
+                                to="/catwiki/most-researched-breeds"
+                                className={`${
+                                    darkMode ? "text-main-color" : "text-white"
+                                }`}
+                            >
+                                see the 10 most researched breeds &#8594;
                             </Link>
                         </p>
-                        <IconContext.Provider
-                            value={{
-                                style: { color: "rgba(41, 21, 7, 0.6)" },
-                            }}
-                        >
-                            <HiOutlineArrowNarrowRight className="self-center" />
-                        </IconContext.Provider>
                     </div>
                 </div>
+
                 <Banner />
             </div>
         </>

@@ -3,8 +3,11 @@ import { Rating } from "./Rating";
 import { Loader } from "./Loader";
 import { useParams } from "react-router-dom";
 import { useFetchDetails } from "../hooks/useFetchDetails";
+import { darkModeContext } from "../context/ThemeProvider";
+import { useContext } from "react";
 
 export const Details = () => {
+    const { darkMode } = useContext(darkModeContext);
     const { id } = useParams();
 
     const { dataCat, dataImg, dataOtherImg, loading, error } = useFetchDetails(
@@ -16,8 +19,12 @@ export const Details = () => {
 
     if (error) {
         <>
-            <h1>There is a problem, try again later...</h1>
-            <p>{error}</p>
+            <h1 className={`${darkMode ? "text-dark" : "text-white"}`}>
+                There is a problem, try again later...
+            </h1>
+            <p className={`${darkMode ? "text-dark" : "text-white"}`}>
+                {error}
+            </p>
         </>;
     }
 
@@ -37,14 +44,18 @@ export const Details = () => {
                                 <img
                                     src={imgOfCat.url}
                                     alt={`Cat - ${id}`}
-                                    className="rounded-3xl md:w-[80%] mr-5"
+                                    className="rounded-3xl md:w-[80%] mr-5 shadow-xl"
                                     key={index}
                                 />
                             ))}
                         </div>
 
                         {dataCat.map((data) => (
-                            <div className="basis-2/3">
+                            <div
+                                className={`${
+                                    darkMode ? "text-dark" : "text-white"
+                                } basis-2/3 `}
+                            >
                                 <h2 className="font-bold text-3xl mb-5 mt-5 md:mt-0">
                                     {data.name}
                                 </h2>
@@ -65,7 +76,7 @@ export const Details = () => {
                                     </span>
                                     {data.life_span} years
                                 </p>
-                                <p className="mb-5 flex">
+                                <p className="mb-5 flex items-center">
                                     <span className="font-bold self-center">
                                         Adaptibility:{" "}
                                     </span>
@@ -125,15 +136,21 @@ export const Details = () => {
                         ))}
                     </div>
 
-                    <h3 className="font-bold text-3xl mb-5">Other photos</h3>
+                    <h3
+                        className={`${
+                            darkMode ? "text-dark" : "text-white"
+                        } font-bold text-3xl mb-5 `}
+                    >
+                        Other photos
+                    </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-7 gap-5">
-                        {dataOtherImg.map((otherImg, index) => (
+                        {dataOtherImg.map((otherImg) => (
                             <div className="flex justify-center">
                                 <img
                                     src={otherImg.url}
                                     alt="other images from cat"
-                                    className="rounded-3xl w-80 h-80"
-                                    key={index}
+                                    className="rounded-3xl w-80 h-80 shadow-lg"
+                                    key={otherImg.id}
                                 />
                             </div>
                         ))}
