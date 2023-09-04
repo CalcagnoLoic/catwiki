@@ -1,41 +1,20 @@
 import CATWIKILOGO from "../assets/img/CatwikiLogo.svg";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { IconContext } from "react-icons";
-import { useEffect, useState } from "react";
+import { useFetchOption } from "../hooks/useFetchOption";
 import { Link, useNavigate } from "react-router-dom";
 import { Banner } from "./Banner";
 
 export const Hero = () => {
-    const [options, setOptions] = useState([]);
     let navigate = useNavigate();
 
     function handleNavigate(value) {
         navigate(`/catwiki/breed/${value}`);
     }
 
-    useEffect(() => {
-        const getData = async () => {
-            let arr = [];
-            try {
-                const res = await fetch(
-                    `https://api.thecatapi.com/v1/breeds?api_key=${
-                        import.meta.env.VITE_api_key
-                    }`
-                );
-                let data = await res.json();
-                data.map((cat) => {
-                    return arr.push({ value: cat.id, label: cat.name });
-                });
-                setOptions(arr);
-                console.log(options);
-            } catch (error) {
-                setOptions(null);
-                console.log(error);
-            }
-        };
-
-        getData();
-    }, []);
+    const { options } = useFetchOption(
+        "https://api.thecatapi.com/v1/breeds?api_key="
+    );
 
     return (
         <>
@@ -55,8 +34,10 @@ export const Hero = () => {
                         className="px-4 py-2 rounded"
                     >
                         <option>Search...</option>
-                        {options.map((cat) => (
-                            <option value={cat.value}>{cat.label}</option>
+                        {options.map((cat, index) => (
+                            <option value={cat.value} key={index}>
+                                {cat.label}
+                            </option>
                         ))}
                     </select>
                 </div>

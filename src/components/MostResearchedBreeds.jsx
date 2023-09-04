@@ -1,37 +1,11 @@
-import { useEffect, useState } from "react";
+import { useFetch } from "../hooks/useFetch";
 import { Loader } from "./Loader";
 import { ReturnHome } from "./ReturnHome";
 
 export const MostResearchedBreeds = () => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
-
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                setLoading(true);
-
-                const res = await fetch(
-                    `https://api.thecatapi.com/v1/breeds?api_key=${
-                        import.meta.env.VITE_api_key
-                    }`
-                );
-
-                let dataDetails = await res.json();
-                setData(dataDetails);
-
-                setLoading(false);
-            } catch (error) {
-                setData(null);
-                setError(error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        getData();
-    }, []);
+    const { data, loading, error } = useFetch(
+        "https://api.thecatapi.com/v1/breeds?api_key="
+    );
 
     if (error) {
         <h1>oops</h1>;
