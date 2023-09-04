@@ -9,7 +9,7 @@ export const Rating = (props) => {
         <StarRatings
             numberOfStars={5}
             rating={props.ratingVote}
-            starRatedColor={`${darkMode ? "bg-red-600" : "bg-white"}`}
+            starRatedColor="rgba(41, 21, 7, 1)"
             starDimension="20px"
             starSpacing="5px"
             className="self-center"
