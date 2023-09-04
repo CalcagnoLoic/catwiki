@@ -1,41 +1,22 @@
 import CATWIKILOGO from "../assets/img/CatwikiLogo.svg";
-import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-import { IconContext } from "react-icons";
-import { useEffect, useState } from "react";
+import { useFetchOption } from "../hooks/useFetchOption";
 import { Link, useNavigate } from "react-router-dom";
 import { Banner } from "./Banner";
+import { darkModeContext } from "../context/ThemeProvider";
+import { useContext } from "react";
 
 export const Hero = () => {
-    const [options, setOptions] = useState([]);
+    const { darkMode } = useContext(darkModeContext);
+
     let navigate = useNavigate();
 
-    function handleNavigate(value) {
+    const handleNavigate = (value) => {
         navigate(`/catwiki/breed/${value}`);
-    }
+    };
 
-    useEffect(() => {
-        const getData = async () => {
-            let arr = [];
-            try {
-                const res = await fetch(
-                    `https://api.thecatapi.com/v1/breeds?api_key=${
-                        import.meta.env.VITE_api_key
-                    }`
-                );
-                let data = await res.json();
-                data.map((cat) => {
-                    return arr.push({ value: cat.id, label: cat.name });
-                });
-                setOptions(arr);
-                console.log(options);
-            } catch (error) {
-                setOptions(null);
-                console.log(error);
-            }
-        };
-
-        getData();
-    }, []);
+    const { options } = useFetchOption(
+        "https://api.thecatapi.com/v1/breeds?api_key="
+    );
 
     return (
         <>
@@ -55,19 +36,33 @@ export const Hero = () => {
                         className="px-4 py-2 rounded"
                     >
                         <option>Search...</option>
-                        {options.map((cat) => (
-                            <option value={cat.value}>{cat.label}</option>
+                        {options.map((cat, index) => (
+                            <option value={cat.value} key={index}>
+                                {cat.label}
+                            </option>
                         ))}
                     </select>
                 </div>
             </div>
 
-            <div className="bg-slate-300 py-8 lg:py-16 px-12 rounded-b-3xl">
-                <p className="text-main-color lg:text-xl mb-5 flex gap-3">
+            <div
+                className={`${
+                    darkMode ? "bg-slate-300" : "bg-slate-500"
+                }  py-8 lg:py-16 px-12 rounded-b-3xl shadow-lg `}
+            >
+                <p
+                    className={`${
+                        darkMode ? "text-main-color" : "text-white"
+                    } lg:text-xl mb-5 flex gap-3 `}
+                >
                     Most Researched Breeds
                 </p>
                 <div className="flex justify-between mb-5 flex-col md:flex-row gap-5 md:gap-0">
-                    <p className="text-main-color font-bold text-2xl lg:text-5xl">
+                    <p
+                        className={`${
+                            darkMode ? "text-main-color" : "text-white"
+                        } font-bold text-2xl lg:text-5xl `}
+                    >
                         66+ Breeds For You to discover
                     </p>
 
@@ -76,19 +71,18 @@ export const Hero = () => {
                             className="self-center text-secondary-color uppercase"
                             to="/most-popular-breed"
                         >
-                            <Link to="/catwiki/most-researched-breeds">
-                                see the 10 most researched breeds
+                            <Link
+                                to="/catwiki/most-researched-breeds"
+                                className={`${
+                                    darkMode ? "text-main-color" : "text-white"
+                                }`}
+                            >
+                                see the 10 most researched breeds &#8594;
                             </Link>
                         </p>
-                        <IconContext.Provider
-                            value={{
-                                style: { color: "rgba(41, 21, 7, 0.6)" },
-                            }}
-                        >
-                            <HiOutlineArrowNarrowRight className="self-center" />
-                        </IconContext.Provider>
                     </div>
                 </div>
+
                 <Banner />
             </div>
         </>

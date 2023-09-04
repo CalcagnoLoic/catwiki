@@ -1,37 +1,14 @@
-import { useEffect, useState } from "react";
+import { useFetch } from "../hooks/useFetch";
 import { Loader } from "./Loader";
 import { ReturnHome } from "./ReturnHome";
+import { darkModeContext } from "../context/ThemeProvider";
+import { useContext } from "react";
 
 export const MostResearchedBreeds = () => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
-
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                setLoading(true);
-
-                const res = await fetch(
-                    `https://api.thecatapi.com/v1/breeds?api_key=${
-                        import.meta.env.VITE_api_key
-                    }`
-                );
-
-                let dataDetails = await res.json();
-                setData(dataDetails);
-
-                setLoading(false);
-            } catch (error) {
-                setData(null);
-                setError(error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        getData();
-    }, []);
+    const { darkMode } = useContext(darkModeContext);
+    const { data, loading, error } = useFetch(
+        "https://api.thecatapi.com/v1/breeds?api_key="
+    );
 
     if (error) {
         <h1>oops</h1>;
@@ -40,7 +17,11 @@ export const MostResearchedBreeds = () => {
     return (
         <>
             <ReturnHome />
-            <h1 className="text-3xl font-extrabold my-5">
+            <h1
+                className={`${
+                    darkMode ? "text-dark" : "text-white"
+                } text-3xl font-extrabold my-5 `}
+            >
                 Top 10 most searched breeds
             </h1>
             {loading ? (
@@ -50,21 +31,38 @@ export const MostResearchedBreeds = () => {
             ) : (
                 <div>
                     {data.map(
-                        (breed) =>
+                        (breed, index) =>
                             breed.id === "esho" && (
-                                <div className="flex flex-col lg:flex-row py-7 px-5 md:px-12 lg:px-24">
+                                <div
+                                    className="flex flex-col lg:flex-row py-7 px-5 md:px-12 lg:px-24"
+                                    key={index}
+                                >
                                     <div className="basis-1/3 flex justify-center ">
                                         <img
                                             src={`https://cdn2.thecatapi.com/images/${breed.reference_image_id}.jpg`}
                                             alt={`${breed.name}`}
-                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0"
+                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0 shadow-lg"
                                         />
                                     </div>
                                     <div className="basis-2/3">
-                                        <h2 className="mb-5 text-2xl font-bold">
+                                        <h2
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            } mb-5 text-2xl font-bold `}
+                                        >
                                             1. {breed.name}
                                         </h2>
-                                        <p>{breed.description}</p>
+                                        <p
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            }`}
+                                        >
+                                            {breed.description}
+                                        </p>
                                     </div>
                                 </div>
                             )
@@ -77,14 +75,28 @@ export const MostResearchedBreeds = () => {
                                         <img
                                             src={`https://cdn2.thecatapi.com/images/${breed.reference_image_id}.jpg`}
                                             alt={`${breed.name}`}
-                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0"
+                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0 shadow-lg"
                                         />
                                     </div>
                                     <div className="basis-2/3">
-                                        <h2 className="mb-5 text-2xl font-bold">
+                                        <h2
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            } mb-5 text-2xl font-bold `}
+                                        >
                                             2. {breed.name}
                                         </h2>
-                                        <p>{breed.description}</p>
+                                        <p
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            }`}
+                                        >
+                                            {breed.description}
+                                        </p>
                                     </div>
                                 </div>
                             )
@@ -97,14 +109,28 @@ export const MostResearchedBreeds = () => {
                                         <img
                                             src={`https://cdn2.thecatapi.com/images/${breed.reference_image_id}.jpg`}
                                             alt={`${breed.name}`}
-                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0"
+                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0 shadow-lg"
                                         />
                                     </div>
                                     <div className="basis-2/3">
-                                        <h2 className="mb-5 text-2xl font-bold">
+                                        <h2
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            } mb-5 text-2xl font-bold `}
+                                        >
                                             3. {breed.name}
                                         </h2>
-                                        <p>{breed.description}</p>
+                                        <p
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            }`}
+                                        >
+                                            {breed.description}
+                                        </p>
                                     </div>
                                 </div>
                             )
@@ -117,14 +143,28 @@ export const MostResearchedBreeds = () => {
                                         <img
                                             src={`https://cdn2.thecatapi.com/images/${breed.reference_image_id}.jpg`}
                                             alt={`${breed.name}`}
-                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0"
+                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0 shadow-lg"
                                         />
                                     </div>
                                     <div className="basis-2/3">
-                                        <h2 className="mb-5 text-2xl font-bold">
+                                        <h2
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            } mb-5 text-2xl font-bold `}
+                                        >
                                             4. {breed.name}
                                         </h2>
-                                        <p>{breed.description}</p>
+                                        <p
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            }`}
+                                        >
+                                            {breed.description}
+                                        </p>
                                     </div>
                                 </div>
                             )
@@ -137,14 +177,28 @@ export const MostResearchedBreeds = () => {
                                         <img
                                             src={`https://cdn2.thecatapi.com/images/${breed.reference_image_id}.jpg`}
                                             alt={`${breed.name}`}
-                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0"
+                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0 shadow-lg"
                                         />
                                     </div>
                                     <div className="basis-2/3">
-                                        <h2 className="mb-5 text-2xl font-bold">
+                                        <h2
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            } mb-5 text-2xl font-bold `}
+                                        >
                                             5. {breed.name}
                                         </h2>
-                                        <p>{breed.description}</p>
+                                        <p
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            }`}
+                                        >
+                                            {breed.description}
+                                        </p>
                                     </div>
                                 </div>
                             )
@@ -157,14 +211,28 @@ export const MostResearchedBreeds = () => {
                                         <img
                                             src={`https://cdn2.thecatapi.com/images/${breed.reference_image_id}.jpg`}
                                             alt={`${breed.name}`}
-                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0"
+                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0 shadow-lg"
                                         />
                                     </div>
                                     <div className="basis-2/3">
-                                        <h2 className="mb-5 text-2xl font-bold">
+                                        <h2
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            } mb-5 text-2xl font-bold `}
+                                        >
                                             6. {breed.name}
                                         </h2>
-                                        <p>{breed.description}</p>
+                                        <p
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            }`}
+                                        >
+                                            {breed.description}
+                                        </p>
                                     </div>
                                 </div>
                             )
@@ -177,14 +245,28 @@ export const MostResearchedBreeds = () => {
                                         <img
                                             src={`https://cdn2.thecatapi.com/images/${breed.reference_image_id}.jpg`}
                                             alt={`${breed.name}`}
-                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0"
+                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0 shadow-lg"
                                         />
                                     </div>
                                     <div className="basis-2/3">
-                                        <h2 className="mb-5 text-2xl font-bold">
+                                        <h2
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            } mb-5 text-2xl font-bold `}
+                                        >
                                             7. {breed.name}
                                         </h2>
-                                        <p>{breed.description}</p>
+                                        <p
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            }`}
+                                        >
+                                            {breed.description}
+                                        </p>
                                     </div>
                                 </div>
                             )
@@ -197,14 +279,28 @@ export const MostResearchedBreeds = () => {
                                         <img
                                             src={`https://cdn2.thecatapi.com/images/${breed.reference_image_id}.jpg`}
                                             alt={`${breed.name}`}
-                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0"
+                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0 shadow-lg"
                                         />
                                     </div>
                                     <div className="basis-2/3">
-                                        <h2 className="mb-5 text-2xl font-bold">
+                                        <h2
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            } mb-5 text-2xl font-bold `}
+                                        >
                                             8. {breed.name}
                                         </h2>
-                                        <p>{breed.description}</p>
+                                        <p
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            }`}
+                                        >
+                                            {breed.description}
+                                        </p>
                                     </div>
                                 </div>
                             )
@@ -217,15 +313,29 @@ export const MostResearchedBreeds = () => {
                                         <img
                                             src={`https://cdn2.thecatapi.com/images/${breed.reference_image_id}.jpg`}
                                             alt={`${breed.name}`}
-                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0"
+                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0 shadow-lg"
                                         />
                                     </div>
                                     <div className="basis-2/3">
-                                        <h2 className="mb-5 text-2xl font-bold">
+                                        <h2
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            } mb-5 text-2xl font-bold `}
+                                        >
                                             {" "}
                                             9. {breed.name}
                                         </h2>
-                                        <p>{breed.description}</p>
+                                        <p
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            }`}
+                                        >
+                                            {breed.description}
+                                        </p>
                                     </div>
                                 </div>
                             )
@@ -238,14 +348,28 @@ export const MostResearchedBreeds = () => {
                                         <img
                                             src={`https://cdn2.thecatapi.com/images/${breed.reference_image_id}.jpg`}
                                             alt={`${breed.name}`}
-                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0"
+                                            className="rounded-xl w-48 h-48 mb-6 lg:mb-0 shadow-lg"
                                         />
                                     </div>
                                     <div className="basis-2/3">
-                                        <h2 className="mb-5 text-2xl font-bold">
+                                        <h2
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            } mb-5 text-2xl font-bold `}
+                                        >
                                             10. {breed.name}
                                         </h2>
-                                        <p>{breed.description}</p>
+                                        <p
+                                            className={`${
+                                                darkMode
+                                                    ? "text-dark"
+                                                    : "text-white"
+                                            }`}
+                                        >
+                                            {breed.description}
+                                        </p>
                                     </div>
                                 </div>
                             )
