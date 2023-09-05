@@ -11,7 +11,14 @@ export const MostResearchedBreeds = () => {
     );
 
     if (error) {
-        <h1>oops</h1>;
+        <>
+            <h1 className={`${darkMode ? "text-dark" : "text-white"}`}>
+                There is a problem, try again later...
+            </h1>
+            <p className={`${darkMode ? "text-dark" : "text-white"}`}>
+                {error}
+            </p>
+        </>;
     }
 
     return (
