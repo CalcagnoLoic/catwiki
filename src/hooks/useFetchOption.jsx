@@ -5,16 +5,18 @@ export const useFetchOption = (url) => {
 
     useEffect(() => {
         const getData = async () => {
-            let arr = [];
+            //let arr = [];
             try {
                 const res = await fetch(
                     `${url}${import.meta.env.VITE_api_key}`
                 );
                 let data = await res.json();
-                data.map((cat) => {
-                    return arr.push({ value: cat.id, label: cat.name });
-                });
-                setOptions(arr);
+
+                const dataObj = data.map((cat) =>
+                    setOptions({ value: cat.id, label: cat.name })
+                );
+
+                return dataObj;
             } catch (error) {
                 setOptions(null);
                 console.log(error);
