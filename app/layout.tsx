@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { montserrat } from "@/app/ui/font";
 
 export const metadata: Metadata = {
-  referrer: 'origin-when-cross-origin',
+  referrer: "origin-when-cross-origin",
   title: {
     template: "%s | Catwiki",
     default: "Catwiki",
