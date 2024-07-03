@@ -3,17 +3,11 @@ import Image from "next/image";
 import Paragraph from "@/app/ui/components/Paragraph";
 import SearchBar from "@/app/ui/components/SearchBar";
 import { Icons } from "@/app/ui/icons";
+import { cats } from "@/app/lib/data";
 
 const Page = () => {
   return (
-    <div className="mx-4 my-3 md:mx-16 md:my-9 xl:mx-24">
-      <Image
-        src="/img/CatwikiLogo.svg"
-        width={130}
-        height={40}
-        alt="Welcome to Catwiki"
-      />
-
+    <>
       <div className="relative">
         <Image
           src="/img/Hero.webp"
@@ -43,7 +37,7 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="bg-westar x:py-12 text-cannonBlack rounded-b-3xl p-6 xl:px-24">
+      <div className="rounded-b-3xl bg-westar p-6 text-cannonBlack xl:px-24 xl:py-12">
         <Paragraph
           kind="p"
           css="text-sm font-semibold md:text-lg"
@@ -66,9 +60,26 @@ const Page = () => {
             <Icons.arrowRight className="mt-4 self-center md:mt-0" />
           </div>
         </div>
+
+        <div className="mt-7 grid grid-cols-2 gap-5 md:mt-12 md:grid-cols-4">
+          {cats.map((cat) => (
+            <div className="flex flex-col items-center" key={cat.id}>
+              <div className="relative h-[220px] w-[220px]">
+                <Image
+                  src={cat.src}
+                  alt={cat.breed}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg"
+                />
+              </div>
+              <p className="pt-2 font-bold">{cat.breed}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="text-cannonBlack mx-6 my-20 flex flex-col justify-between xl:mx-24 xl:flex-row">
+      <div className="mx-6 my-20 flex flex-col justify-between text-cannonBlack xl:mx-24 xl:flex-row">
         <div className="self-center xl:max-w-80">
           <h2 className="text-4xl font-bold">Why should you have a cat?</h2>
           <Paragraph
@@ -96,7 +107,7 @@ const Page = () => {
           className="mt-5 xl:mt-0"
         />
       </div>
-    </div>
+    </>
   );
 };
 
