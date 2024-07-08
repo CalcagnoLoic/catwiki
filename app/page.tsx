@@ -4,6 +4,7 @@ import Paragraph from "@/app/ui/components/Paragraph";
 import SearchBar from "@/app/ui/components/SearchBar";
 import { Icons } from "@/app/ui/icons";
 import { cats } from "@/app/lib/data";
+import Line from "@/app/ui/components/Line";
 
 const Page = () => {
   return (
@@ -43,6 +44,7 @@ const Page = () => {
           css="text-sm font-semibold md:text-lg"
           content="Most Researched Breeds"
         />
+        <Line cssPosition="mt-2" />
 
         <div className="flex flex-col justify-center md:flex-row md:justify-between">
           <Paragraph
@@ -61,19 +63,18 @@ const Page = () => {
           </div>
         </div>
 
-        <div className="mt-7 grid grid-cols-2 gap-5 md:mt-12 md:grid-cols-4">
+        <div className="mt-7 grid grid-cols-2 gap-5 md:mt-12 xl:grid-cols-4">
           {cats.map((cat) => (
             <div className="flex flex-col items-center" key={cat.id}>
-              <div className="relative h-[220px] w-[220px]">
+              <div className="relative h-[130px] w-[130px] md:h-[220px] md:w-[220px]">
                 <Image
                   src={cat.src}
                   alt={cat.breed}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
+                  fill
+                  className="rounded-lg object-cover"
                 />
               </div>
-              <p className="pt-2 font-bold">{cat.breed}</p>
+              <p className="text pt-2 font-bold">{cat.breed}</p>
             </div>
           ))}
         </div>
@@ -81,6 +82,7 @@ const Page = () => {
 
       <div className="mx-6 my-20 flex flex-col justify-between text-cannonBlack xl:mx-24 xl:flex-row">
         <div className="self-center xl:max-w-80">
+          <Line cssPosition="mb-4" />
           <h2 className="text-4xl font-bold">Why should you have a cat?</h2>
           <Paragraph
             kind="p"
