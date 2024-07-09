@@ -16,6 +16,7 @@ const config: Config = {
         cannonBlack: "#291507",
         westar: "#E3E1DC",
         cioccolato: "#4D270C",
+        calico: "#DEC68B",
       },
     },
   },

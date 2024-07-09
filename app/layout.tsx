@@ -18,9 +18,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body className={`${montserrat.className} antialiased`}>
-        <div className="mx-4 mt-3 md:mx-16 md:mt-9 xl:mx-24">
+        <div className="mx-4 mt-3 md:mx-16 md:mt-9 xl:mx-24 flex flex-col h-screen">
           <Header />
-          <main>{children}</main>
+          <main className="flex-grow">{children}</main>
           <Footer />
         </div>
       </body>

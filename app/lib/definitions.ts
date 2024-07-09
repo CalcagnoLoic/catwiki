@@ -1,8 +1,19 @@
-export type Paragraphs = {
-  kind: "p" | "span";
+export type ButtonPosition = {
+  cssPosition: string;
+};
+
+interface Content {
   css: string;
   content: string;
-};
+}
+
+export interface Paragraphs extends Content {
+  kind: "p" | "span";
+}
+
+export interface Headings extends Content {
+  kind: "h1" | "h2";
+}
 
 export interface Cat {
   weight: Weight;
@@ -42,11 +53,17 @@ export interface Cat {
   wikipedia_url: string;
   hypoallergenic: number;
   reference_image_id: string;
-  value: string
-  label: string
+  value: string;
+  label: string;
 }
 
 export interface Weight {
   imperial: string;
   metric: string;
+}
+
+export interface BreedPage {
+  params: {
+    slug: string;
+  };
 }

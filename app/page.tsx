@@ -1,10 +1,14 @@
 import "@/app/ui/globals.css";
+
+import { cats } from "@/app/lib/data";
+import { Icons } from "@/app/ui/icons";
+
+import Heading from "@/app/ui/components/Heading";
 import Image from "next/image";
+import Line from "@/app/ui/components/Line";
+import Link from "next/link";
 import Paragraph from "@/app/ui/components/Paragraph";
 import SearchBar from "@/app/ui/components/SearchBar";
-import { Icons } from "@/app/ui/icons";
-import { cats } from "@/app/lib/data";
-import Line from "@/app/ui/components/Line";
 
 const Page = () => {
   return (
@@ -54,11 +58,12 @@ const Page = () => {
           />
 
           <div className="flex gap-2 md:self-end">
-            <Paragraph
-              kind="p"
-              css="mt-4 md:mt-0 md:self-end uppercase"
-              content="see more"
-            />
+            <Link
+              href={"/breed/most-researched"}
+              className="mt-4 uppercase md:mt-0 md:self-end"
+            >
+              see more
+            </Link>
             <Icons.arrowRight className="mt-4 self-center md:mt-0" />
           </div>
         </div>
@@ -83,7 +88,11 @@ const Page = () => {
       <div className="mx-6 my-20 flex flex-col justify-between text-cannonBlack xl:mx-24 xl:flex-row">
         <div className="self-center xl:max-w-80">
           <Line cssPosition="mb-4" />
-          <h2 className="text-4xl font-bold">Why should you have a cat?</h2>
+          <Heading
+            kind="h2"
+            content="Why should you have a cat?"
+            css="text-4xl font-bold"
+          />
           <Paragraph
             kind="p"
             css="mt-10"
