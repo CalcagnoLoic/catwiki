@@ -1,5 +1,4 @@
 "use client";
-
 import "@/app/ui/globals.css";
 
 import { BreedPage } from "@/app/lib/definitions";
@@ -17,7 +16,7 @@ const Page: React.FC<BreedPage> = ({ params }) => {
   const { slug } = params;
   const { breed, loading, error } = useFetch({ slug: slug });
   const { imageSrc } = useFetchImage({ slug: slug, limit: "1" });
-  const { imageSrc: otherImageSrc } = useFetchImage({ slug: slug, limit: "8" });
+  const { imageSrc: otherImageSrc } = useFetchImage({ slug: slug, limit: "10" });
 
   return (
     <div>
@@ -82,13 +81,15 @@ const Page: React.FC<BreedPage> = ({ params }) => {
             />
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
               {otherImageSrc.map((catImage) => (
-                <div key={breed.id} className="relative h-[278px] w-[278px] left-1/2 -translate-x-1/2 xl:left-0 xl:translate-x-0 mt-5">
+                <div
+                  key={breed.id}
+                  className="relative left-1/2 mt-5 h-[278px] w-[278px] -translate-x-1/2 xl:left-0 xl:translate-x-0"
+                >
                   <Image
                     src={catImage.url}
                     fill
                     alt={breed.name}
                     className="rounded-3xl object-cover"
-                    
                   />
                 </div>
               ))}

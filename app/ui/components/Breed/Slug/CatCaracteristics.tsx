@@ -1,70 +1,126 @@
 import { Cat } from "@/app/lib/definitions";
+import Paragraph from "../../Paragraph";
 
 const CatCaracteristics = ({ breed }: { breed: Cat }) => (
   <>
     <div className="mt-8">
-      <p>
-        <strong>Temperament: </strong> {breed.temperament}
-      </p>
+      <Paragraph
+        kind="p"
+        content={
+          <>
+            <strong>Temperament: </strong> {breed.temperament}
+          </>
+        }
+      />
     </div>
     <div className="mt-8">
-      <p>
-        <strong>Origin: </strong>
-        {breed.origin}
-      </p>
+      <Paragraph
+        kind="p"
+        content={
+          <>
+            <strong>Origin: </strong>
+            {breed.origin}
+          </>
+        }
+      />
     </div>
     <div className="mt-8">
-      <p>
-        <strong>Life Span: </strong> {breed.life_span} years
-      </p>
+      <Paragraph
+        kind="p"
+        content={
+          <>
+            <strong>Life Span: </strong> {breed.life_span} years
+          </>
+        }
+      />
     </div>
     <div className="mt-8">
-      <p>
-        <strong>Adaptability: </strong>
-        {breed.adaptability}
-      </p>
+      <Paragraph
+        kind="p"
+        content={
+          <>
+            <strong>Adaptability: </strong>
+            {breed.adaptability}
+          </>
+        }
+      />
     </div>
     <div className="mt-8">
-      <p>
-        <strong>Affection Level: </strong>
-        {breed.affection_level}
-      </p>
+      <Paragraph
+        kind="p"
+        content={
+          <>
+            <strong>Affection Level: </strong>
+            {breed.affection_level}
+          </>
+        }
+      />
     </div>
     <div className="mt-8">
-      <p>
-        <strong>Child Friendly: </strong>
-        {breed.child_friendly}
-      </p>
+      <Paragraph
+        kind="p"
+        content={
+          <>
+            <strong>Child Friendly: </strong>
+            {breed.child_friendly}
+          </>
+        }
+      />
     </div>
     <div className="mt-8">
-      <p>
-        <strong>Grooming: </strong>
-        {breed.grooming}
-      </p>
+      <Paragraph
+        kind="p"
+        content={
+          <>
+            <strong>Grooming: </strong>
+            {breed.grooming}
+          </>
+        }
+      />
     </div>
     <div className="mt-8">
-      <p>
-        <strong>Intelligence: </strong>
-        {breed.intelligence}
-      </p>
+      <Paragraph
+        kind="p"
+        content={
+          <>
+            <strong>Intelligence: </strong>
+            {breed.intelligence}
+          </>
+        }
+      />
     </div>
     <div className="mt-8">
-      <p>
-        <strong>Health issues: </strong>
-        {breed.health_issues}
-      </p>
+      <Paragraph
+        kind="p"
+        content={
+          <>
+            <strong>Health issues: </strong>
+            {breed.health_issues}
+          </>
+        }
+      />
     </div>
     <div className="mt-8">
-      <p>
-        <strong>Social needs: </strong>
-        {breed.social_needs}
-      </p>
+      <Paragraph
+        kind="p"
+        content={
+          <>
+            <strong>Social needs: </strong>
+            {breed.social_needs}
+          </>
+        }
+      />
     </div>
     <div className="mt-8">
-      <p>
-        <strong>Stranger friendly: </strong>
-        {breed.stranger_friendly}
-      </p>
+      <Paragraph
+        kind="p"
+        content={
+          <>
+            <strong>Stranger friendly: </strong>
+            {breed.stranger_friendly}
+          </>
+        }
+      />
     </div>
   </>
 );

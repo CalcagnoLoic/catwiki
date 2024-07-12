@@ -3,8 +3,8 @@ export type ButtonPosition = {
 };
 
 interface Content {
-  css: string;
-  content: string;
+  css?: string;
+  content: string | React.ReactNode;
 }
 
 export interface Paragraphs extends Content {
@@ -69,7 +69,7 @@ export interface BreedPage {
 }
 
 export interface getImages {
-  limit: string
+  limit: string;
   slug: string;
 }
 
@@ -78,4 +78,16 @@ export type ImageData = {
   url: string;
   width: number;
   height: number;
+};
+
+export type catsHero = {
+  id: string;
+  src: string;
+  breed: string;
+};
+
+export type reasons = {
+  id: string;
+  subtitle: string;
+  explanation: string;
 };

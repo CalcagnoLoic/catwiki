@@ -18,6 +18,13 @@ const config: Config = {
         cioccolato: "#4D270C",
         calico: "#DEC68B",
       },
+      keyframes: {
+        shimmer: {
+          "100%": {
+            transform: "translateX(100%)",
+          },
+        },
+      },
     },
   },
   plugins: [],
