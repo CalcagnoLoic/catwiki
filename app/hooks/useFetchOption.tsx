@@ -10,7 +10,6 @@ export const useFetchOptions = () => {
         `https://api.thecatapi.com/v1/breeds?api_key=${process.env.API_KEY}`,
       );
       const data = await res.json();
-      console.log("5");
 
       const dataObj = data.map((cat: { id: string; name: string }) => ({
         value: cat.id,
@@ -19,7 +18,6 @@ export const useFetchOptions = () => {
       setOptions(dataObj);
     } catch (error) {
       setOptions([]);
-      console.log(error);
     }
   };
 

@@ -4,6 +4,7 @@ import "@/app/ui/globals.css";
 
 import { BreedPage } from "@/app/lib/definitions";
 import { useFetch } from "@/app/hooks/useFetch";
+import { useFetchImage } from "@/app/hooks/useFetchImage";
 
 import CatCaracteristics from "@/app/ui/components/Breed/Slug/CatCaracteristics";
 import Heading from "@/app/ui/components/Heading";
@@ -15,6 +16,8 @@ import GoBackButton from "@/app/ui/components/GoBackButton";
 const Page: React.FC<BreedPage> = ({ params }) => {
   const { slug } = params;
   const { breed, loading, error } = useFetch({ slug: slug });
+  const { imageSrc } = useFetchImage({ slug: slug, limit: "1" });
+  const { imageSrc: otherImageSrc } = useFetchImage({ slug: slug, limit: "8" });
 
   return (
     <div>
@@ -44,17 +47,21 @@ const Page: React.FC<BreedPage> = ({ params }) => {
 
       {breed && (
         <>
-          <div className="mx-12 mt-10 flex flex-col gap-28 xl:flex-row">
+          <div className="mt-10 flex flex-col xl:flex-row xl:gap-28">
             <>
-              <Image
-                src="/img/bengal.webp"
-                width={371}
-                height={371}
-                alt="Bengal"
-                className="max-h-[371px] rounded-3xl"
-              />
+              <div className="relative left-1/2 mt-5 h-[250px] w-[250px] -translate-x-1/2 md:h-[371px] md:w-[371px] xl:left-0 xl:mt-0 xl:translate-x-0">
+                {imageSrc.length > 0 && (
+                  <Image
+                    src={imageSrc[0].url}
+                    width={375}
+                    height={375}
+                    alt={breed.name}
+                    className="rounded-3xl object-cover"
+                  />
+                )}
+              </div>
 
-              <div className="text-cioccolato">
+              <div className="text-cioccolato xl:w-1/2">
                 <Heading
                   kind="h1"
                   content={breed.name}
@@ -71,8 +78,21 @@ const Page: React.FC<BreedPage> = ({ params }) => {
             <Heading
               kind="h2"
               content="Others photos"
-              css="text-cioccolato text-3xl font-semibold"
+              css="text-cioccolato text-3xl font-semibold mt-5"
             />
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+              {otherImageSrc.map((catImage) => (
+                <div key={breed.id} className="relative h-[278px] w-[278px] left-1/2 -translate-x-1/2 xl:left-0 xl:translate-x-0 mt-5">
+                  <Image
+                    src={catImage.url}
+                    fill
+                    alt={breed.name}
+                    className="rounded-3xl object-cover"
+                    
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </>
       )}

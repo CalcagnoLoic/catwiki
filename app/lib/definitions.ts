@@ -67,3 +67,15 @@ export interface BreedPage {
     slug: string;
   };
 }
+
+export interface getImages {
+  limit: string
+  slug: string;
+}
+
+export type ImageData = {
+  id: string;
+  url: string;
+  width: number;
+  height: number;
+};

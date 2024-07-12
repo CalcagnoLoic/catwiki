@@ -7,9 +7,9 @@ export const useFetch = ({ slug }: { slug: string }) => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    setLoading(true);
     const fetchBreed = async () => {
       try {
+        setLoading(true);
         const res = await fetch(
           `https://api.thecatapi.com/v1/breeds/${slug}?api_key=${process.env.API_KEY}`,
         );
