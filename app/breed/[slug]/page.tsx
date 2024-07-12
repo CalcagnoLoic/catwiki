@@ -2,17 +2,17 @@
 import "@/app/ui/globals.css";
 
 import { BreedPage } from "@/app/lib/definitions";
+import { BreedSkeleton } from "@/app/ui/components/skeletons";
 import { useFetch } from "@/app/hooks/useFetch";
 import { useFetchImage } from "@/app/hooks/useFetchImage";
 
 import CatCaracteristics from "@/app/ui/components/Breed/Slug/CatCaracteristics";
+import Custom404 from "@/app/ui/components/Custom404";
 import Heading from "@/app/ui/components/Heading";
 import Image from "next/image";
-import Loader from "@/app/ui/components/Loader";
 import Paragraph from "@/app/ui/components/Paragraph";
 import GoBackButton from "@/app/ui/components/GoBackButton";
-import { BreedSkeleton } from "@/app/ui/components/skeletons";
-import Custom404 from "@/app/ui/Custom404";
+
 
 const Page: React.FC<BreedPage> = ({ params }) => {
   const { slug } = params;

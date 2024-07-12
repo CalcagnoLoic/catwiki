@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cat Wiki
 
-## Getting Started
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=next,ts,tailwind" />
+  </a>
+</p>
 
-First, run the development server:
+This site lets you see the different characteristics, descriptions and photos of around sixty breeds of cat. 
+In addition, an article presents the top 10 most popular and most researched breeds. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The information on cat species comes from the [Cat API](https://thecatapi.com/).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p align="center">
+    <img src="public/img/readme.png" width="60%">
+</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## User stories
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [x] I can search for cat breeds and select a breed of my choice
+- [x] I can see the most popular searched cat breeds summary on the homepage
+- [ ] I can see the top 10 most searched cat breeds
+- [x] I can see the breed details including description, temperament, origin, life span, adaptability, affection level, child-friendly, grooming, intelligence, health issues, social needs, stranger friendly
+- [x] I can see more photo of the breed
+- [ ] On mobile, when I select the search option, a modal for breed search should pop up
+- [x] I can go to an article about cats when I click read more on Why you should have a cat section
+- [x] I can go to the top 10 cats by clicking see more in the dashboard
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Built with
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Semantic HTML5 markup
+- Mobile-first workflow
+- TailwindCSS
+- NextJS
+- TypeScript
+- CICD workflow
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Personnal website - [Portfolio](https://calcagno-loic.netlify.app/)
+- Frontend Mentor - [@CalcagnoLoic](https://www.frontendmentor.io/profile/CalcagnoLoic)
+- Linkedin - [LinkedIn](https://www.linkedin.com/in/loic-calcagno/)

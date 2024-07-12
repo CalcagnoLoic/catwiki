@@ -1,6 +1,6 @@
-import GoBackButton from "./components/GoBackButton";
+import GoBackButton from "../components/GoBackButton";
 import Image from "next/image";
-import Paragraph from "./components/Paragraph";
+import Paragraph from "../components/Paragraph";
 
 const Custom404 = ({ error }: { error: string }) => {
   return (
