@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { Cat } from "../lib/definitions";
+import { useEffect, useState } from "react";
 
 export const useFetch = ({ slug }: { slug: string }) => {
   const [breed, setBreed] = useState<Cat | undefined>(undefined);
@@ -18,8 +18,12 @@ export const useFetch = ({ slug }: { slug: string }) => {
         }
         const data = await res.json();
         setBreed(data);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("An unknown error occurred");
+        }
       } finally {
         setLoading(false);
       }
