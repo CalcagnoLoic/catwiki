@@ -19,7 +19,7 @@ The information on cat species comes from the [Cat API](https://thecatapi.com/).
 
 - [x] I can search for cat breeds and select a breed of my choice
 - [x] I can see the most popular searched cat breeds summary on the homepage
-- [ ] I can see the top 10 most searched cat breeds
+- [x] I can see the top 10 most searched cat breeds
 - [x] I can see the breed details including description, temperament, origin, life span, adaptability, affection level, child-friendly, grooming, intelligence, health issues, social needs, stranger friendly
 - [x] I can see more photo of the breed
 - [ ] On mobile, when I select the search option, a modal for breed search should pop up
