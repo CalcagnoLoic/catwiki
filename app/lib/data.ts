@@ -57,3 +57,16 @@ export const reasonsToHaveCats: reasons[] = [
       "Cats can teach valuable lessons in empathy and compassion, especially to children. By observing and interacting with a cat, children learn to understand and respond to the needs and emotions of another living being. This experience can foster a sense of empathy, patience, and respect for animals and humans alike. Growing up with a cat can also instill a lifelong appreciation for animals and the natural world.",
   },
 ];
+
+export const mostPopularCats: string[] = [
+  "pers",
+  "mcoo",
+  "siam",
+  "ragd",
+  "rblu",
+  "sphy",
+  "birm",
+  "bsho",
+  "sfol",
+  "abys",
+];

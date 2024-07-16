@@ -9,20 +9,20 @@ on:
       - master
 
 jobs:
-    linter:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout branche
-              uses: actions/checkout@v4
-            
-            - name: Setup nodeJS version
-              uses: actions/setup-node@v4
-              with:
-                node-version: "20"
-                cache: npm
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branche
+        uses: actions/checkout@v4
 
-            - name: Install dependencies
-              run: npm install
+      - name: Setup nodeJS version
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
 
-            - name: linter
-              run: npm run lint
+      - name: Install dependencies
+        run: npm install
+
+      - name: linter
+        run: npm run lint

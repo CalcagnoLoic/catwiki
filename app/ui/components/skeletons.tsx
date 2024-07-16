@@ -48,3 +48,27 @@ export const BreedSkeleton = () => {
     </>
   );
 };
+
+export const MostResearchedSkeleton = () => {
+  return (
+    <>
+      {Array(4)
+        .fill(0)
+        .map((_, index) => (
+          <div
+            className="mt-12 flex flex-col md:flex-row md:gap-12"
+            key={index}
+          >
+            <div className="relative left-1/2 h-[200px] w-[200px] -translate-x-1/2 md:left-0 md:-translate-x-0">
+              <ImageSkeleton />
+            </div>
+
+            <div className="mt-5 md:mt-0 md:w-2/3 xl:w-4/5">
+              <TextSkeleton width="60%" />
+              <TextSkeleton width="90%" />
+            </div>
+          </div>
+        ))}
+    </>
+  );
+};

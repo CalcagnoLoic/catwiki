@@ -1,6 +1,6 @@
 "use client";
 
-import { useFetchOptions } from "@/app/hooks/useFetchOption";
+import { useFetchOptions } from "@/app/hooks/useFetchOptions";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 

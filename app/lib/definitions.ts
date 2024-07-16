@@ -91,3 +91,8 @@ export type reasons = {
   subtitle: string;
   explanation: string;
 };
+
+export type mostResearchedBreed = {
+  breed: Cat;
+  index: number
+};
