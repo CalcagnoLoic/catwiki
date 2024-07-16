@@ -101,14 +101,14 @@ const Page = () => {
           />
 
           <div className="mt-6 flex cursor-pointer gap-2">
-            <Link href={"/why-a-cat"}>
+            <Link href={"/why-a-cat"} className="flex gap-5">
               <Paragraph
                 kind="p"
                 css="mt-4 md:mt-0 md:self-end uppercase font-bold"
                 content="read more"
               />
+              <Icons.arrowRight className="mt-4 self-center md:mt-0" />
             </Link>
-            <Icons.arrowRight className="mt-4 self-center md:mt-0" />
           </div>
         </div>
 
