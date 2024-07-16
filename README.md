@@ -22,7 +22,7 @@ The information on cat species comes from the [Cat API](https://thecatapi.com/).
 - [x] I can see the top 10 most searched cat breeds
 - [x] I can see the breed details including description, temperament, origin, life span, adaptability, affection level, child-friendly, grooming, intelligence, health issues, social needs, stranger friendly
 - [x] I can see more photo of the breed
-- [ ] On mobile, when I select the search option, a modal for breed search should pop up
+- [ ] On mobile, when I select the search option, a modal for breed search should pop up <kbr>Coming soon</kbr>
 - [x] I can go to an article about cats when I click read more on Why you should have a cat section
 - [x] I can go to the top 10 cats by clicking see more in the dashboard
 
