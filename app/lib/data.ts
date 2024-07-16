@@ -1,4 +1,4 @@
-import { catsHero, reasons } from "./definitions";
+import { caracteristics, catsHero, reasons } from "./definitions";
 
 export const cats: catsHero[] = [
   { id: "IGedC!Vaqh", src: "/img/bengal.webp", breed: "Bengal" },
@@ -69,4 +69,18 @@ export const mostPopularCats: string[] = [
   "bsho",
   "sfol",
   "abys",
+];
+
+export const catCaracteristics: caracteristics[] = [
+  { name: "Temperament", data: "temperament", rating: false },
+  { name: "Origin", data: "origin", rating: false },
+  { name: "Life Span", data: "life_span", rating: false },
+  { name: "Adaptability", data: "adaptability", rating: true },
+  { name: "Affection Level", data: "affection_level", rating: true },
+  { name: "Child Friendly", data: "child_friendly", rating: true },
+  { name: "Grooming", data: "grooming", rating: true },
+  { name: "Intelligence", data: "intelligence", rating: true },
+  { name: "Health issues", data: "health_issues", rating: true },
+  { name: "Social needs", data: "social_needs", rating: true },
+  { name: "Stranger friendly", data: "stranger_friendly", rating: true },
 ];

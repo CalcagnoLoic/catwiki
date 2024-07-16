@@ -55,6 +55,7 @@ export interface Cat {
   reference_image_id: string;
   value: string;
   label: string;
+  [key: string]: any;
 }
 
 export interface Weight {
@@ -94,5 +95,11 @@ export type reasons = {
 
 export type mostResearchedBreed = {
   breed: Cat;
-  index: number
+  index: number;
+};
+
+export type caracteristics = {
+  name: string;
+  data: string;
+  rating: boolean;
 };

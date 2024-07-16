@@ -68,7 +68,7 @@ const Page: React.FC<BreedPage> = ({ params }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
               {otherImageSrc.map((catImage) => (
                 <div
-                  key={breed.id}
+                  key={breed.reference_image_id}
                   className="relative left-1/2 mt-5 h-[278px] w-[278px] -translate-x-1/2 xl:left-0 xl:translate-x-0"
                 >
                   <Image
