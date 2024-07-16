@@ -79,7 +79,7 @@ const Page = () => {
                   className="rounded-lg object-cover"
                 />
               </div>
-              <p className="text pt-2 font-bold">{cat.breed}</p>
+              <p className="text pt-2 font-bold text-center">{cat.breed}</p>
             </div>
           ))}
         </div>
