@@ -9,7 +9,7 @@ const SearchBar = () => {
   const router = useRouter();
   const [selectedOptions, setSelectedOptions] = useState<string>("");
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { value: string } }) => {
     const value = e.target.value;
     setSelectedOptions(value);
 
