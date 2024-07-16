@@ -63,7 +63,7 @@ const Page: React.FC<BreedPage> = ({ params }) => {
             <Heading
               kind="h2"
               content="Others photos"
-              css="text-cioccolato text-3xl font-semibold mt-5"
+              css="text-cioccolato text-3xl font-semibold mt-14"
             />
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
               {otherImageSrc.map((catImage) => (
