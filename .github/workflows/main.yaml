@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - migrating-nextjs
-  pull_request:
-    branches:
-      - master
+  #pull_request:
+  #  branches:
+  #    - master
 
 jobs:
   linter:
