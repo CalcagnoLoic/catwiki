@@ -1,6 +1,6 @@
 {
   "name": "catwiki",
-  "version": "0.1.0",
+  "version": "2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,16 +11,16 @@
     "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
-    "next": "^14.2.32",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "^15.5.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.4",
+    "eslint-config-next": "^15.5.7",
     "lucide-react": "^0.399.0",
     "postcss": "^8",
     "prettier": "^3.3.2",

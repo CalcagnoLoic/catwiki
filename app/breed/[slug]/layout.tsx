@@ -1,15 +1,15 @@
+import { ReactNode } from "react";
 import { Metadata } from "next";
-import Page from "./page";
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const { slug } = params;
-  return {
-    title: `${slug}`,
-  };
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  return { title: slug };
 }
 
-export default Page;
+export default function Layout({ children }: { children: ReactNode }) {
+  return <>{children}</>;
+}
